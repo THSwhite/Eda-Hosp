@@ -1,0 +1,5 @@
+1.從公開學術網站 NIH CIP(NATIONAL CANCER INSTITUTE Cancer Imaging Program) 下載 Pancreas Healthy Subject, 共82個樣本的TCIA檔，轉檔下載後取其中一個作為對照組。
+
+下載網址：https://www.cancerimagingarchive.net/collection/pancreas-ct/
+
+遇到的問題：DCM檔可以調整WW(窗框)，由於不清楚義大醫院提供資料的灰階設定，公開資料的WW使用預設的400。

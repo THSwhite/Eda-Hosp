@@ -1,0 +1,13 @@
+# 先忽略所有東西
+/*
+
+# 只保留這些
+!.gitignore
+!Algorithms/
+!日誌/
+!main.ipynb
+
+# 子資料夾內不需要的
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
