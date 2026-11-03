@@ -49,7 +49,7 @@ def births_of_intervals(input_PD):
 ###############################################
 ###############################################
 
-def gen_hitogram(input_list,
+def gen_histogram(input_list,
                  histogram_bins=np.linspace(0,100,10),
                  plot_the_histogram=False):
   ## Step 1: Clean data

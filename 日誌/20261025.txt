@@ -1,0 +1,1 @@
+1.製作binarize_tool.py，功能為將經過region_mask_tool.py過的資料集二值化為RGB並儲存。

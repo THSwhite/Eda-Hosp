@@ -11,15 +11,7 @@ import gudhi as gd
 import persim
 import cv2
 
-###############################################
-###############################################
-## Pickle tools...
-###############################################
-###############################################
-
-def save_list_by_pickle(input_list, target_path):
-  with open(target_path, 'wb') as f:
-    pickle.dump(input_list, f)
+from Algorithms.pickle_tool_v01 import ave_list_by_pickle 
 
 ###############################################
 ###############################################

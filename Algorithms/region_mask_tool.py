@@ -11,6 +11,7 @@ r"""
     #   out_dir    輸出位置，預設為目前工作目錄（通常就是 main.ipynb 所在資料夾）
     #   use_tolerance=False  關閉 Tolerance：不做區域擴張，正方形內全部保留（Blur 也會一併失效）
     #   use_blur=False       關閉 Blur：判斷連接時不先模糊（Tolerance 仍可用）
+    # 回傳值: 實際輸出的資料夾路徑；若離開前沒有按 s 存檔則為 None
 
 【命令列】
     python region_mask_tool.py "資料夾或圖片路徑" [n]
@@ -336,19 +337,21 @@ class RegionTool:
         cv2.destroyAllWindows()
         for _ in range(5):
             cv2.waitKey(1)
+        return self.save_dir  # 回傳實際輸出的資料夾；沒按 s 存檔則為 None
 
 
 def run(target, n=DEFAULT_N, crop=True, out_dir=None, use_tolerance=True, use_blur=True):
     """target: 資料夾或單張圖片路徑；n: 正方形邊長預設值(像素)
     crop: True=輸出裁成 n×n；False=保持原圖大小。out_dir: 輸出位置，預設目前工作目錄
     use_tolerance: False=關閉容許誤差區域擴張（正方形內全保留）
-    use_blur: False=關閉判斷前的模糊"""
+    use_blur: False=關閉判斷前的模糊
+    回傳: 實際輸出的資料夾路徑；若沒有按 s 存檔則為 None"""
     files = collect_images(target)
     if not files:
         raise FileNotFoundError(f"在 {target} 找不到圖片")
     print(f"找到 {len(files)} 張圖片，正方形邊長 n={n}。"
           "單擊放置正方形，拖曳可調整大小；n/p 換圖；全部選完按 s 一次輸出；q 離開")
-    RegionTool(files, n, crop, out_dir, use_tolerance, use_blur).loop()
+    return RegionTool(files, n, crop, out_dir, use_tolerance, use_blur).loop()
 
 
 if __name__ == "__main__":
